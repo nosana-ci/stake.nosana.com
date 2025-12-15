@@ -1,5 +1,4 @@
 import { Client, type ClientConfig } from "@nosana/sdk";
-import { useCookies } from '@vueuse/integrations/useCookies'
 import {
   useAnchorWallet,
   type AnchorWallet,
@@ -18,7 +17,7 @@ const prioFee = useLocalStorage("prio-fee", {
 const nosana = computed(() => {
   // Include wallet connection state to trigger reactivity when wallet connects/disconnects
   const { connected, publicKey } = useWallet();
-  
+
   let wallet: Ref<AnchorWallet | undefined>;
 
   try {

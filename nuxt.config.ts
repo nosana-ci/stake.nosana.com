@@ -8,8 +8,6 @@ export default defineNuxtConfig({
   ssr: false,
   css: [
     "~/assets/styles/global.scss",
-    "bulma-o-steps/bulma-steps.css",
-    "@creativebulma/bulma-tooltip/dist/bulma-tooltip.min.css",
   ],
   dir: {
     public: "static",
@@ -80,13 +78,9 @@ export default defineNuxtConfig({
         events: "rollup-plugin-node-polyfills/polyfills/events",
       },
     },
-    build: {
-      target: "esnext",
-      reportCompressedSize: false,
-    },
     optimizeDeps: {
       include: ["@solana/web3.js", "buffer"],
-      exclude: ["vue-demi"],
+      exclude: ["vue-demi", "react", "react-dom", "react/jsx-runtime"],
       esbuildOptions: {
         target: "esnext",
         define: {
@@ -96,6 +90,10 @@ export default defineNuxtConfig({
     },
     define: {
       "process.env.BROWSER": true,
+    },
+    build: {
+      target: "esnext",
+      reportCompressedSize: false,
     },
     css: {
       preprocessorOptions: {

@@ -17,10 +17,6 @@
   --status-danger-color: #{$danger};
   --status-dark-color: #{$grey-light};
 
-  .new-badge {
-    background: white !important;
-    color: black !important;
-  }
 
   /* Layout & Surfaces ---------------------------------------------------- */
   body:not(.light-mode) {
@@ -72,27 +68,6 @@
     background-color: $box-background-color-dark;
   }
 
-  .wallet-auth-banner {
-    .banner-title {
-      color: $white;
-    }
-
-    .banner-subtitle {
-      color: $grey-light;
-    }
-  }
-
-  .port-badge {
-    background: rgba($secondary, 0.15);
-    color: $secondary;
-    border-color: $secondary;
-
-    &:hover {
-      background: $secondary;
-      color: $black;
-      box-shadow: 0 2px 4px rgba($secondary, 0.3);
-    }
-  }
 
   .tag {
     background-color: $black-ter !important;
@@ -102,18 +77,8 @@
     }
   }
 
-  .tag.status-tag {
-    background-color: $black-ter;
-  }
-
   .tag.is-success {
     background-color: $black-ter !important;
-  }
-
-  .category-tag {
-    background-color: $grey-dark !important;
-    color: $white !important;
-    border: 1px solid $grey !important;
   }
 
   .title:not(.light-mode) {
@@ -125,14 +90,6 @@
     color: white;
   }
 
-  .back-arrow-icon,
-  .back-button .back-arrow-icon {
-    color: $white !important;
-  }
-
-  .clickable-row:hover {
-    background-color: rgba(255, 255, 255, 0.05);
-  }
 
   /* Text Utilities ------------------------------------------------------- */
   .has-text-white:not(.light-mode) {
@@ -196,48 +153,7 @@
     }
   }
 
-  .tab-button {
-    background: $grey-darker;
-    border-color: $grey-dark;
-    color: $grey-light;
 
-    &:hover {
-      background: color.adjust($grey-darker, $lightness: 5%);
-    }
-
-    &.is-active {
-      background: $white;
-      color: $black;
-      border-color: $white;
-    }
-  }
-
-  /* Buttons & Actions ---------------------------------------------------- */
-  .action-btn,
-  .group-action-btn {
-    background: $grey-darker;
-    border-color: $grey-dark;
-    color: $grey-light;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-
-    .icon img {
-      filter: brightness(0) saturate(100%) invert(88%) sepia(0%) saturate(0%) hue-rotate(180deg) brightness(100%) contrast(88%);
-    }
-
-    &:hover:not(:disabled) {
-      background: color.adjust($grey-darker, $lightness: 5%);
-      border-color: color.adjust($grey-dark, $lightness: 10%);
-      color: $white;
-    }
-
-    &.is-loading {
-      &:after {
-        border-color: $grey;
-        border-right-color: transparent;
-        border-top-color: transparent;
-      }
-    }
-  }
 
   .button.is-outlined {
     &.is-primary {
@@ -302,59 +218,6 @@
     }
   }
 
-  .state-filter .button {
-    &.is-small {
-      padding: 3px 1em !important;
-      
-      &:hover,
-      &.is-hovered,
-      &:focus,
-      &:active {
-        padding: 3px 1em !important;
-      }
-    }
-  }
-
-  .button-filter.button {
-    background-color: $black !important;
-    border-color: $white !important;
-    color: $white !important;
-
-    &:hover,
-    &:focus,
-    &.is-selected,
-    &:active {
-      background-color: $white !important;
-      border-color: $white !important;
-      color: $black !important;
-    }
-
-    &.is-primary {
-      &:hover,
-      &:focus,
-      &:active,
-      &.is-selected {
-        background-color: $white !important;
-        border-color: $white !important;
-        color: $black !important;
-      }
-    }
-
-    &.is-outlined {
-      background-color: transparent !important;
-      border-color: $white !important;
-      color: $white !important;
-
-      &:hover,
-      &:focus,
-      &:active,
-      &.is-selected {
-        background-color: $white !important;
-        border-color: $white !important;
-        color: $black !important;
-      }
-    }
-  }
 
   .button:not(.light-mode) {
     &.is-dark {
@@ -406,46 +269,6 @@
     color: white;
   }
 
-  .status-select {
-    select {
-      background-color: $grey-darker;
-      border-color: $grey-dark;
-      color: $white;
-
-      &:focus {
-        border-color: $grey;
-      }
-
-      option {
-        background-color: $black-ter;
-        border-color: $grey-dark;
-
-        &:hover {
-          background-color: $grey-darker;
-        }
-
-        &.has-text-success {
-          color: $success !important;
-          border-color: $success;
-        }
-
-        &.has-text-info {
-          color: $info !important;
-          border-color: $info;
-        }
-
-        &.has-text-warning {
-          color: $warning !important;
-          border-color: $warning;
-        }
-
-        &.has-text-dark {
-          color: $white !important;
-          border-color: $white;
-        }
-      }
-    }
-  }
 
   /* Dropdowns & Menus ---------------------------------------------------- */
   .dropdown-menu {
@@ -535,44 +358,6 @@
     }
   }
 
-  /* Components ----------------------------------------------------------- */
-  .json-editor-container {
-    background-color: $grey-darker !important;
-    border-color: $grey-dark;
-
-    .json-editor {
-      background-color: $grey-darker !important;
-
-      :deep(.jse-main) {
-        background-color: $grey-darker !important;
-      }
-
-      :deep(.jse-contents) {
-        background-color: $grey-darker !important;
-      }
-
-      :deep(.jse-text-mode) {
-        background-color: $grey-darker !important;
-      }
-
-      :deep(.cm-editor) {
-        background-color: $grey-darker !important;
-      }
-
-      :deep(.cm-focused) {
-        background-color: $grey-darker !important;
-      }
-    }
-  }
-
-  .box .json-editor-container {
-    background-color: $grey-darker !important;
-  }
-
-  .vjs-tree-node.is-highlight,
-  .vjs-tree-node:hover {
-    background-color: $grey-darker;
-  }
 
   .progress {
     &:indeterminate {
@@ -596,9 +381,6 @@
     }
   }
 
-  .has-tooltip-arrow img {
-    filter: invert(1);
-  }
 
   /* Modals & Overlays ---------------------------------------------------- */
   .modal-card-head:not(.light-mode) {
@@ -684,154 +466,9 @@
     }
   }
 
-  .login-modal {
-    background: $black-ter !important;
-    color: $white !important;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5) !important;
-
-    .login-title {
-      color: $white !important;
-    }
-
-    .login-subtitle {
-      color: $grey-light !important;
-    }
-
-    .login-button {
-      background: $grey-darker !important;
-      color: $white !important;
-      border-color: $grey-dark !important;
-
-      &:hover:not(:disabled) {
-        background: $grey-dark !important;
-        border-color: $grey !important;
-      }
-
-      &.is-loading::after {
-        border-color: $white transparent $white transparent !important;
-      }
-    }
-
-    .google-button {
-      background: $grey-darker !important;
-      border-color: $grey-dark !important;
-
-      &:hover:not(:disabled) {
-        background: $grey-dark !important;
-        border-color: $grey !important;
-      }
-    }
-
-    .twitter-button {
-      background: $black !important;
-      border-color: $grey-darker !important;
-
-      &:hover:not(:disabled) {
-        background: $grey-darker !important;
-        border-color: $grey-dark !important;
-      }
-    }
-
-    .divider span {
-      color: $grey-light !important;
-    }
-  }
-
-  .wallet-modal-content {
-    background: $black-ter !important;
-    color: $white !important;
-  }
-
-  .wallet-modal-title {
-    color: $white !important;
-  }
-
-  .wallet-item {
-    background: $grey-darker !important;
-    border-color: $grey-dark !important;
-    color: $white !important;
-
-    &:hover {
-      background: $grey-dark !important;
-      border-color: $secondary !important;
-    }
-  }
-
-  .wallet-name {
-    color: $white !important;
-  }
-
-  .modal-close-button {
-    color: $grey-light !important;
-
-    &:hover {
-      background-color: $grey-darker !important;
-      color: $white !important;
-    }
-  }
 
   .spinner-bg {
     background-color: rgba(0, 0, 0, 0.7) !important;
   }
 
-  .deployment-logs-container {
-    .notification.is-light {
-      background-color: $box-background-color-dark !important;
-      color: $white !important;
-      border-color: $grey-darker !important;
-    }
-  }
-
-  .dark-mode .clickable-notification:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  }
-  
-}
-
-.quick-detail-item {
-    .quick-detail-label {
-      color: #b0b0b0;
-    }
-
-    .quick-detail-value,
-    .quick-detail-value .icon-text,
-    .quick-detail-value .address {
-      color: $white;
-    }
-    
-    .quick-detail-value a,
-    .quick-detail-value nuxt-link,
-    .quick-detail-value .address {
-      color: $link !important;
-    }
-    
-    .quick-detail-value a:hover,
-    .quick-detail-value nuxt-link:hover {
-      color: $link-hover !important;
-    }
-  }
-
-html.dark-mode {
-  .quick-detail-item {
-    .quick-detail-label {
-      color: #b0b0b0;
-    }
-
-    .quick-detail-value,
-    .quick-detail-value .icon-text,
-    .quick-detail-value .address {
-      color: #ffffff;
-    }
-    
-    .quick-detail-value a,
-    .quick-detail-value nuxt-link,
-    .quick-detail-value .address {
-      color: #10E80C !important; // Nosana green for links in dark mode
-    }
-    
-    .quick-detail-value a:hover,
-    .quick-detail-value nuxt-link:hover {
-      color: #33ff33 !important; // Lighter green on hover
-    }
-  }
 }

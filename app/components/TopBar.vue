@@ -1,8 +1,10 @@
 <template>
   <div class="is-flex is-justify-content-space-between mb-5 is-flex-wrap-wrap">
     <div class="is-flex is-flex-direction-row is-align-items-center">
-      <Logo />
-      <h2 class="title is-3 ml-4">{{ title }}</h2>
+      <logo width="160px" :animated="true" class="light-only" />
+      <logo width="160px" :white="true" class="dark-only" :animated="true" />
+      <div class="vertical-divider mx-4"></div>
+      <h2 class="title is-3">{{ title }}</h2>
     </div>
     <div class="modal" :class="{ 'is-active': modelValue }">
       <div
@@ -89,6 +91,17 @@
           />
         </svg>
       </button>
+      <div v-if="!connected">
+        <ClientOnly>
+          <wallet-modal-provider v-if="!connected" :dark="$colorMode.value === 'dark'">
+            <template #default="modalScope">
+              <a class="button is-fullwidth is-primary is-large" @click="modalScope.openModal()">
+                Connect Wallet
+              </a>
+            </template>
+          </wallet-modal-provider>
+        </ClientOnly>
+      </div>
       <div
         v-if="connected && !hideButtons"
         class="profile-dropdown"
@@ -156,7 +169,7 @@ import { computed, ref, onMounted, onUnmounted, watch } from "vue";
 import SettingsIcon from "@/assets/img/icons/settings.svg?component";
 import LogoutIcon from "@/assets/img/icons/logout.svg?component";
 import { useRouter } from "vue-router";
-import { useWallet } from "solana-wallets-vue";
+import { WalletModalProvider, useWallet } from "solana-wallets-vue";
 
 const { nosana, prioFee } = useSDK();
 const router = useRouter();
@@ -390,6 +403,18 @@ defineExpose({
 
 <style scoped lang="scss">
 @use "sass:color";
+
+.vertical-divider {
+  width: 1px;
+  height: 2rem;
+  background-color: $grey;
+  flex-shrink: 0;
+}
+
+.dark-mode .vertical-divider {
+  background-color: $grey-darker;
+}
+
 .profile-dropdown {
   position: relative;
   cursor: pointer;
