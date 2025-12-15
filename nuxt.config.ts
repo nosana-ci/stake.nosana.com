@@ -94,6 +94,9 @@ export default defineNuxtConfig({
     build: {
       target: "esnext",
       reportCompressedSize: false,
+      rollupOptions: {
+        external: ["react", "react-dom"],
+      },
     },
     css: {
       preprocessorOptions: {
