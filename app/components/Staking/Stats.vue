@@ -257,9 +257,6 @@
   </div>
 </template>
 <script setup lang="ts">
-import RedArrowIcon from '@/assets/img/icons/red-arrow.svg?component';
-import GreenArrowIcon from '@/assets/img/icons/green-arrow.svg?component';
-
 const { data: stats, pending: loading } = await useAPI('/api/stats');
 </script>
 <style scoped lang="scss">

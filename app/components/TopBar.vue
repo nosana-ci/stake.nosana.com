@@ -121,7 +121,7 @@
             </div>
             <div class="profile-info">
               <span class="profile-name">{{ getWalletAddress() }}</span>
-              <span class="profile-balance"
+              <span class="profile-balance" v-if="nosBalance && nosBalance.uiAmount"
                 >{{ nosBalance.uiAmount.toFixed(2) }} NOS</span
               >
             </div>
