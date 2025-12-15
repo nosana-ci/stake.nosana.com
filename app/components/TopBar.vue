@@ -66,7 +66,7 @@
       ></button>
     </div>
     <!-- Profile Section -->
-    <div class="is-flex is-flex-direction-row is-align-items-center">
+    <div class="is-flex is-flex-direction-row is-align-items-center profile-section">
       <button
         class="sidebar-theme-toggle mr-4"
         @click="toggleDarkMode"
@@ -172,7 +172,6 @@ import { useRouter } from "vue-router";
 import { WalletModalProvider, useWallet } from "solana-wallets-vue";
 
 const { nosana, prioFee } = useSDK();
-const router = useRouter();
 const { connected, publicKey, wallet, disconnect } = useWallet();
 
 // Profile dropdown state
@@ -618,14 +617,6 @@ defineExpose({
   box-shadow: 0 4px 12px rgba($black, 0.3);
 }
 
-/* Hide TopBar profile section on mobile to prevent overlap with sidebar */
-@media screen and (max-width: 1023px) {
-  .profile-dropdown,
-  .button.is-primary {
-    display: none !important;
-  }
-}
-
 .sidebar-theme-toggle {
   background: none;
   border: none;
@@ -651,5 +642,16 @@ defineExpose({
 .dark-mode .sidebar-theme-toggle:hover {
   background-color: #374151;
   color: #d1d5db;
+}
+
+.profile-section {
+  @media screen and (max-width: $tablet) {
+    justify-content: space-between;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
 }
 </style>

@@ -3,7 +3,7 @@
     <section class="columns ml-0 mr-0 mt-0 mb-0">
       <div
         id="content"
-        class="column has-navbar-fixed-top-mobile ultrawide-centered"
+        class="column ultrawide-centered"
       >
         <div class="section">
           <div>
@@ -30,5 +30,9 @@
   margin-right: auto;
   padding-left: 2rem;
   padding-right: 2rem;
-}
+  @media screen and (max-width: $tablet) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
 </style>
