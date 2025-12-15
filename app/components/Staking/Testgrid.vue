@@ -19,4 +19,14 @@
   background-repeat: no-repeat;
   border: 1px solid $grey-darker !important;
 }
+
+.button.is-outlined.is-white {
+  padding-top: 6px !important;
+  padding-bottom: 6px !important;
+  
+  &:hover {
+    padding-top: 6px !important;
+    padding-bottom: 6px !important;
+  }
+}
 </style>

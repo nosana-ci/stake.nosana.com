@@ -122,7 +122,7 @@
             <div class="profile-info">
               <span class="profile-name">{{ getWalletAddress() }}</span>
               <span class="profile-balance"
-                >${{ getNosBalanceUSD().toFixed(2) }}</span
+                >{{ nosBalance.uiAmount.toFixed(2) }} NOS</span
               >
             </div>
           </template>
@@ -168,7 +168,6 @@
 import { computed, ref, onMounted, onUnmounted, watch } from "vue";
 import SettingsIcon from "@/assets/img/icons/settings.svg?component";
 import LogoutIcon from "@/assets/img/icons/logout.svg?component";
-import { useRouter } from "vue-router";
 import { WalletModalProvider, useWallet } from "solana-wallets-vue";
 
 const { nosana, prioFee } = useSDK();
@@ -206,17 +205,6 @@ const getWalletAddress = () => {
 const nosBalance = ref<any | null>(null);
 const loadingNosBalance = ref(false);
 
-// Get NOS price from stats API with memoization
-const { data: stats } = useAPI("/api/stats");
-const nosPrice = computed(() => stats.value?.price || 0);
-
-// Memoized NOS balance in USD to prevent recalculation on every render
-const nosBalanceUSD = computed(() => {
-  if (!nosBalance.value || !nosPrice.value) return 0;
-  return (nosBalance.value.uiAmount || 0) * nosPrice.value;
-});
-
-const getNosBalanceUSD = () => nosBalanceUSD.value;
 // Fetch NOS balance
 const fetchNosBalance = async (signal?: AbortSignal) => {
   if (!connected.value || !publicKey.value) return;
