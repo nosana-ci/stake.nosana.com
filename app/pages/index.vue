@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TopBar :title="'Staking'" :subtitle="'Stake NOS and earn rewards'" ref="topBar" v-model="showSettingsModal" />
+    <TopBar :title="'Stake'" :subtitle="'Stake NOS and earn rewards'" ref="topBar" v-model="showSettingsModal" />
     <div class="notification is-warning is-light">
       <p>
         <strong>Notice:</strong>

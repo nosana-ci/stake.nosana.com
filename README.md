@@ -1,6 +1,6 @@
-# Nosana Staking
+# Nosana Stake
 
-Nuxt 4 site for the [Nosana Staking](https://dashboard.nosana.com).
+Nuxt 4 site for the [Nosana Stake](https://dashboard.nosana.com).
 
 ## Build Setup
 

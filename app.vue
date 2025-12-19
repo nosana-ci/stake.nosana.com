@@ -9,9 +9,9 @@
 
 <script setup lang="ts">
 useSeoMeta({
-  title: 'Nosana Staking',
-  ogTitle: 'Nosana Staking',
-  twitterTitle: 'Nosana Staking',
+  title: 'Nosana Stake',
+  ogTitle: 'Nosana Stake',
+  twitterTitle: 'Nosana Stake',
   description: 'Stake NOS and earn rewards',
   ogDescription: 'Stake NOS and earn rewards',
   twitterDescription: 'Stake NOS and earn rewards',

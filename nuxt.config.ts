@@ -6,7 +6,7 @@ import { nodePolyfills } from "vite-plugin-node-polyfills";
 export default defineNuxtConfig({
   app: {
     head: {
-      title: 'Nosana Staking',
+      title: 'Nosana Stake',
       htmlAttrs: {
         lang: 'en',
       },
