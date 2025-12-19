@@ -1,5 +1,5 @@
 <template>
-  <div class="is-flex is-justify-content-space-between mb-5 is-flex-wrap-wrap">
+  <div class="is-flex is-justify-content-space-between is-align-items-center mb-5 is-flex-wrap-wrap">
     <div class="is-flex is-flex-direction-row is-align-items-center">
       <logo width="160px" :animated="true" class="light-only" />
       <logo width="160px" :white="true" class="dark-only" :animated="true" />
@@ -67,8 +67,18 @@
     </div>
     <!-- Profile Section -->
     <div class="is-flex is-flex-direction-row is-align-items-center profile-section">
+      <!-- Status Link -->
+      <a 
+        href="https://nosana.statuspage.io" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="navbar-tab is-hidden-mobile"
+      >
+        <div class="status-dot"></div>
+        <span>Status</span>
+      </a>
       <button
-        class="sidebar-theme-toggle mr-4"
+        class="navbar-tab mr-4"
         @click="toggleDarkMode"
         :title="
           $colorMode.value === 'dark'
@@ -95,9 +105,9 @@
         <ClientOnly>
           <wallet-modal-provider v-if="!connected" :dark="$colorMode.value === 'dark'">
             <template #default="modalScope">
-              <a class="button is-fullwidth is-primary is-large" @click="modalScope.openModal()">
-                Connect Wallet
-              </a>
+              <button class="login-button" @click="modalScope.openModal()">
+                Connect wallet
+              </button>
             </template>
           </wallet-modal-provider>
         </ClientOnly>
@@ -605,32 +615,6 @@ defineExpose({
   box-shadow: 0 4px 12px rgba($black, 0.3);
 }
 
-.sidebar-theme-toggle {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 8px;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.2s ease;
-  color: #6b7280;
-}
-
-.sidebar-theme-toggle:hover {
-  background-color: #f3f4f6;
-  color: #374151;
-}
-
-.dark-mode .sidebar-theme-toggle {
-  color: #9ca3af;
-}
-
-.dark-mode .sidebar-theme-toggle:hover {
-  background-color: #374151;
-  color: #d1d5db;
-}
 
 .profile-section {
   @media screen and (max-width: $tablet) {
@@ -641,5 +625,91 @@ defineExpose({
     gap: 1rem;
     margin-top: 1rem;
   }
+}
+
+.navbar-tab {
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: $grey;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+  
+  &:hover {
+    color: $text;
+    background: $grey-lightest;
+  }
+  
+  &.is-active {
+    color: $primary;
+    background: rgba($primary, 0.08);
+  }
+  
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.dark-mode .navbar-tab {
+  color: $grey-light;
+  
+  &:hover {
+    color: $white;
+    background: rgba($white, 0.05);
+  }
+  
+  &.is-active {
+    color: $white;
+    background: rgba($primary, 0.15);
+  }
+}
+
+.login-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: $grey;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-button:hover {
+  color: $text;
+  background: $grey-lightest;
+}
+
+.dark-mode .login-button {
+  color: $grey-light;
+}
+
+.dark-mode .login-button:hover {
+  color: $white;
+  background: rgba($white, 0.05);
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: $success;
+  box-shadow: 0 0 8px rgba($success, 0.4);
+  flex-shrink: 0;
+  align-self: center;
+  margin: 0;
 }
 </style>
