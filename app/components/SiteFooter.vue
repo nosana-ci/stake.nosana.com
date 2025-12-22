@@ -6,7 +6,7 @@
       class="is-size-6 is-flex is-justify-content-center mb-3 mt-1"
       style="gap: 10px"
     >
-      <a href="http://deploy.nosana.com/" target="_blank" class="has-text-grey">Deploy</a>
+      <a href="https://deploy.nosana.com/" target="_blank" class="has-text-grey">Deploy</a>
       <span class="has-text-grey">|</span>
       <a href="https://explore.nosana.com/" target="_blank" class="has-text-grey">Explore</a>
       <span class="has-text-grey">|</span>
