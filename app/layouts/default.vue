@@ -10,9 +10,9 @@
             <slot />
           </div>
         </div>
-        <site-footer class="mt-auto" />
-      </div>
+      </div>  
     </section>
+    <site-footer/>
   </div>
 </template>
 
