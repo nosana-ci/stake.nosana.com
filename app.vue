@@ -28,7 +28,8 @@ useHead({
     {
       rel: 'icon',
       type: 'image/ico',
-      href: '/favicon.ico'
+      href: '/favicon.ico',
+      sizes: 'any'
     }
   ]
 })
