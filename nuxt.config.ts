@@ -10,8 +10,15 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: 'en',
       },
+      meta: [
+        { name: 'theme-color', content: '#10E80C' },
+        { name: 'apple-mobile-web-app-title', content: 'Nosana Stake' },
+      ],
       link: [
-        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico', sizes: 'any' },
+        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
+        { rel: 'manifest', href: '/_nuxt/manifest.webmanifest' },
       ],
     },
   },
@@ -22,6 +29,30 @@ export default defineNuxtConfig({
   ],
   dir: {
     public: "static",
+  },
+  pwa: {
+    manifest: {
+      name: "Nosana Stake",
+      short_name: "Nosana Stake",
+      theme_color: "#10E80C",
+      background_color: "#ffffff",
+      display: "standalone",
+      description: "Nosana Staking Platform",
+      start_url: "/",
+      scope: "/",
+      icons: [
+        {
+          src: "/web-app-manifest-192x192.png",
+          sizes: "192x192",
+          type: "image/png",
+        },
+        {
+          src: "/web-app-manifest-512x512.png",
+          sizes: "512x512",
+          type: "image/png",
+        },
+      ],
+    },
   },
   modules: [
     "@nuxtjs/google-fonts",
