@@ -10,6 +10,10 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: 'en',
       },
+      meta: [
+        { name: 'theme-color', content: '#10E80C' },
+        { name: 'apple-mobile-web-app-title', content: 'Nosana Stake' },
+      ],
       link: [
         { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
