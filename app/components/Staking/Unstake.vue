@@ -88,10 +88,7 @@
         </h2>
         <p>NOS</p>
       </div>
-      <button class="button is-fullwidth is-primary" :class="{ 'is-loading': loading }" @click.prevent="restake">
-        Restake<span v-if="vaultBalance">&nbsp;{{ Math.floor(vaultBalance) }}&nbsp;</span> NOS
-      </button>
-      <button class="button is-fullwidth is-primary is-outlined mt-2" :class="{ 'is-loading': loading }"
+      <button class="button is-fullwidth is-primary" :class="{ 'is-loading': loading }"
         @click.prevent="withdraw">
         Withdraw released tokens
       </button>
@@ -155,21 +152,6 @@ const unstake = async () => {
     toast.success('Succesfully unstaked NOS');
   } catch (e: any) {
     console.error('cant unstake', e);
-    toast.error(e.toString());
-  }
-  loading.value = false;
-}
-
-const restake = async () => {
-  loading.value = true;
-  try {
-    const restake = await nosana.value.stake.restake();
-    await refreshStake();
-    await refreshBalance();
-    console.log('restake', restake);
-    toast.success('Succesfully restaked NOS');
-  } catch (e: any) {
-    console.error('cant restake', e);
     toast.error(e.toString());
   }
   loading.value = false;
