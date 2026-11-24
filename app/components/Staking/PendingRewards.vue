@@ -7,23 +7,18 @@
       <span v-else>-</span>
     </div>
     <div class="column is-12">
-      <button class="button mt-2 is-fullwidth is-primary is-large" @click.prevent="claimAndRestakeRewards()"
-        :class="{ 'is-loading': loading }">
-        Restake
-      </button>
-      <button class="button mt-2 is-fullwidth is-primary is-large is-outlined" @click.prevent="claimRewards()"
+      <button class="button mt-2 is-fullwidth is-primary is-large" @click.prevent="claimRewards()"
         :class="{ 'is-loading': loading }">
         Claim your rewards
       </button>
     </div>
   </div>
-  <p class="is-size-7">You can either restake your pending rewards to increase your xNOS score and earn even more rewards, or you can claim your pending rewards immediately to your wallet.</p>
+  <p class="is-size-7">You can claim your pending rewards immediately to your wallet.</p>
 </template>
 <script lang="ts" setup>
 import { useWallet } from "solana-wallets-vue";
 import BN from 'bn.js';
 import { useToast } from "vue-toastification";
-import { sleep } from "@nosana/sdk";
 const toast = useToast();
 const timestamp = useTimestamp({ interval: 1000 })
 
@@ -62,22 +57,6 @@ const claimRewards = async () => {
     toast.success('Succesfully claimed rewards');
   } catch (e: any) {
     console.error('cant claim rewards', e);
-    toast.error(e.toString());
-  }
-  loading.value = false;
-}
-
-const claimAndRestakeRewards = async () => {
-  loading.value = true;
-  try {
-    const claim = await nosana.value.stake.claimAndRestakeRewards(pendingRewards.value as number);
-    await sleep(3);
-    await refreshBalance();
-    await refreshStake();
-    console.log('claim & restake', claim);
-    toast.success('Succesfully restaked NOS');
-  } catch (e: any) {
-    console.error('cant cant claim & restake', e);
     toast.error(e.toString());
   }
   loading.value = false;
